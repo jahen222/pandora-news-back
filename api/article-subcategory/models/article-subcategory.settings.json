@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_subcategories",
+  "info": {
+    "name": "Article Subcategory"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 64
+    },
+    "article_category": {
+      "model": "article-category",
+      "via": "article_subcategories"
+    },
+    "articles": {
+      "via": "article_subcategory",
+      "collection": "article"
+    }
+  }
+}
