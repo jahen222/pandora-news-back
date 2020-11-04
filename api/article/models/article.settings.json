@@ -35,10 +35,9 @@
       "model": "article-subcategory",
       "via": "articles"
     },
-    "author": {
-      "plugin": "users-permissions",
-      "collection": "user",
-      "via": "articles"
+    "admin_user": {
+      "plugin": "admin",
+      "model": "user"
     }
   }
 }
