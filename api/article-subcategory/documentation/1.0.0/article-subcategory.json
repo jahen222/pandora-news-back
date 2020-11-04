@@ -596,6 +596,12 @@
                 "article_subcategory": {
                   "type": "string"
                 },
+                "author": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "published_at": {
                   "type": "string"
                 },
