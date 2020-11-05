@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/03/2020 11:42:58 PM"
+    "x-generation-date": "11/05/2020 12:31:50 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3708,7 +3708,8 @@
       "Article-category": {
         "required": [
           "id",
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "id": {
@@ -3723,7 +3724,8 @@
             "items": {
               "required": [
                 "id",
-                "name"
+                "name",
+                "language"
               ],
               "properties": {
                 "id": {
@@ -3741,6 +3743,9 @@
                     "type": "string"
                   }
                 },
+                "language": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -3753,6 +3758,14 @@
               }
             }
           },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -3761,7 +3774,8 @@
       },
       "NewArticle-category": {
         "required": [
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "name": {
@@ -3773,6 +3787,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -3789,7 +3811,8 @@
       "Article-subcategory": {
         "required": [
           "id",
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "id": {
@@ -3802,7 +3825,8 @@
           "article_category": {
             "required": [
               "id",
-              "name"
+              "name",
+              "language"
             ],
             "properties": {
               "id": {
@@ -3816,6 +3840,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "language": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -3834,7 +3861,8 @@
               "required": [
                 "id",
                 "title",
-                "content"
+                "content",
+                "language"
               ],
               "properties": {
                 "id": {
@@ -3858,6 +3886,9 @@
                 "admin_user": {
                   "type": "string"
                 },
+                "language": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -3870,6 +3901,14 @@
               }
             }
           },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -3878,7 +3917,8 @@
       },
       "NewArticle-subcategory": {
         "required": [
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "name": {
@@ -3893,6 +3933,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",
@@ -3910,7 +3958,8 @@
         "required": [
           "id",
           "title",
-          "content"
+          "content",
+          "language"
         ],
         "properties": {
           "id": {
@@ -3996,7 +4045,8 @@
           "article_subcategory": {
             "required": [
               "id",
-              "name"
+              "name",
+              "language"
             ],
             "properties": {
               "id": {
@@ -4013,6 +4063,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "language": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -4069,6 +4122,14 @@
               }
             }
           },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -4078,7 +4139,8 @@
       "NewArticle": {
         "required": [
           "title",
-          "content"
+          "content",
+          "language"
         ],
         "properties": {
           "title": {
@@ -4093,6 +4155,14 @@
           },
           "admin_user": {
             "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",

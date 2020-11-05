@@ -530,7 +530,8 @@
       "Article-category": {
         "required": [
           "id",
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "id": {
@@ -545,7 +546,8 @@
             "items": {
               "required": [
                 "id",
-                "name"
+                "name",
+                "language"
               ],
               "properties": {
                 "id": {
@@ -563,6 +565,9 @@
                     "type": "string"
                   }
                 },
+                "language": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -575,6 +580,14 @@
               }
             }
           },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -583,7 +596,8 @@
       },
       "NewArticle-category": {
         "required": [
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "name": {
@@ -595,6 +609,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",

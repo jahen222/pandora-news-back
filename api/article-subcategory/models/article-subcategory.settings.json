@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "article_subcategories",
   "info": {
-    "name": "Article Subcategory"
+    "name": "Article Subcategory",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -22,6 +23,15 @@
     "articles": {
       "via": "article_subcategory",
       "collection": "article"
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "spanish",
+        "english"
+      ],
+      "default": "spanish",
+      "required": true
     }
   }
 }

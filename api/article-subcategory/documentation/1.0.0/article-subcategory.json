@@ -530,7 +530,8 @@
       "Article-subcategory": {
         "required": [
           "id",
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "id": {
@@ -543,7 +544,8 @@
           "article_category": {
             "required": [
               "id",
-              "name"
+              "name",
+              "language"
             ],
             "properties": {
               "id": {
@@ -557,6 +559,9 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "language": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -575,7 +580,8 @@
               "required": [
                 "id",
                 "title",
-                "content"
+                "content",
+                "language"
               ],
               "properties": {
                 "id": {
@@ -599,6 +605,9 @@
                 "admin_user": {
                   "type": "string"
                 },
+                "language": {
+                  "type": "string"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -611,6 +620,14 @@
               }
             }
           },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -619,7 +636,8 @@
       },
       "NewArticle-subcategory": {
         "required": [
-          "name"
+          "name",
+          "language"
         ],
         "properties": {
           "name": {
@@ -634,6 +652,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "language": {
+            "type": "string",
+            "default": "spanish",
+            "enum": [
+              "spanish",
+              "english"
+            ]
           },
           "published_at": {
             "type": "string",
