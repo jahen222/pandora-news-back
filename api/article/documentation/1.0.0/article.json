@@ -519,7 +519,9 @@
           "id",
           "title",
           "content",
-          "language"
+          "media",
+          "editor_pick",
+          "pinned"
         ],
         "properties": {
           "id": {
@@ -605,8 +607,7 @@
           "article_subcategory": {
             "required": [
               "id",
-              "name",
-              "language"
+              "name"
             ],
             "properties": {
               "id": {
@@ -623,9 +624,6 @@
                 "items": {
                   "type": "string"
                 }
-              },
-              "language": {
-                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -682,13 +680,51 @@
               }
             }
           },
-          "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
+          "article_tags": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "articles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "language": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "editor_pick": {
+            "type": "boolean",
+            "default": false
+          },
+          "views": {
+            "type": "integer"
+          },
+          "pinned": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -700,7 +736,8 @@
         "required": [
           "title",
           "content",
-          "language"
+          "editor_pick",
+          "pinned"
         ],
         "properties": {
           "title": {
@@ -716,13 +753,22 @@
           "admin_user": {
             "type": "string"
           },
-          "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
+          "article_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "editor_pick": {
+            "type": "boolean",
+            "default": false
+          },
+          "views": {
+            "type": "integer"
+          },
+          "pinned": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",

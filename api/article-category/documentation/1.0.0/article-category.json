@@ -530,8 +530,7 @@
       "Article-category": {
         "required": [
           "id",
-          "name",
-          "language"
+          "name"
         ],
         "properties": {
           "id": {
@@ -546,8 +545,7 @@
             "items": {
               "required": [
                 "id",
-                "name",
-                "language"
+                "name"
               ],
               "properties": {
                 "id": {
@@ -565,9 +563,6 @@
                     "type": "string"
                   }
                 },
-                "language": {
-                  "type": "string"
-                },
                 "published_at": {
                   "type": "string"
                 },
@@ -581,12 +576,43 @@
             }
           },
           "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
+            "required": [
+              "id",
+              "name",
+              "acronym"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "acronym": {
+                "type": "string"
+              },
+              "article_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "article_tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -596,8 +622,7 @@
       },
       "NewArticle-category": {
         "required": [
-          "name",
-          "language"
+          "name"
         ],
         "properties": {
           "name": {
@@ -611,12 +636,7 @@
             }
           },
           "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
+            "type": "string"
           },
           "published_at": {
             "type": "string",

@@ -530,8 +530,7 @@
       "Article-subcategory": {
         "required": [
           "id",
-          "name",
-          "language"
+          "name"
         ],
         "properties": {
           "id": {
@@ -544,8 +543,7 @@
           "article_category": {
             "required": [
               "id",
-              "name",
-              "language"
+              "name"
             ],
             "properties": {
               "id": {
@@ -581,7 +579,9 @@
                 "id",
                 "title",
                 "content",
-                "language"
+                "media",
+                "editor_pick",
+                "pinned"
               ],
               "properties": {
                 "id": {
@@ -605,8 +605,20 @@
                 "admin_user": {
                   "type": "string"
                 },
-                "language": {
-                  "type": "string"
+                "article_tags": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "editor_pick": {
+                  "type": "boolean"
+                },
+                "views": {
+                  "type": "integer"
+                },
+                "pinned": {
+                  "type": "boolean"
                 },
                 "published_at": {
                   "type": "string"
@@ -620,14 +632,6 @@
               }
             }
           },
-          "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -636,8 +640,7 @@
       },
       "NewArticle-subcategory": {
         "required": [
-          "name",
-          "language"
+          "name"
         ],
         "properties": {
           "name": {
@@ -652,14 +655,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "language": {
-            "type": "string",
-            "default": "spanish",
-            "enum": [
-              "spanish",
-              "english"
-            ]
           },
           "published_at": {
             "type": "string",
