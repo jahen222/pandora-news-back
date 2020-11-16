@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/article-subcategories": {
+    "/authors": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Author"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArticle-subcategory"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
         }
       }
     },
-    "/article-subcategories/count": {
+    "/authors/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "parameters": []
       }
     },
-    "/article-subcategories/{id}": {
+    "/authors/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Author"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArticle-subcategory"
+                "$ref": "#/components/schemas/NewAuthor"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Author"
         ],
         "parameters": [
           {
@@ -527,10 +514,11 @@
   },
   "components": {
     "schemas": {
-      "Article-subcategory": {
+      "Author": {
         "required": [
           "id",
-          "name"
+          "name",
+          "photo"
         ],
         "properties": {
           "id": {
@@ -538,12 +526,21 @@
           },
           "name": {
             "type": "string",
-            "maxLength": 64
+            "maxLength": 32
           },
-          "article_category": {
+          "last_name": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "photo": {
             "required": [
               "id",
-              "name"
+              "name",
+              "hash",
+              "mime",
+              "size",
+              "url",
+              "provider"
             ],
             "properties": {
               "id": {
@@ -552,16 +549,46 @@
               "name": {
                 "type": "string"
               },
-              "article_subcategories": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "language": {
+              "alternativeText": {
                 "type": "string"
               },
-              "published_at": {
+              "caption": {
+                "type": "string"
+              },
+              "width": {
+                "type": "integer"
+              },
+              "height": {
+                "type": "integer"
+              },
+              "formats": {
+                "type": "object"
+              },
+              "hash": {
+                "type": "string"
+              },
+              "ext": {
+                "type": "string"
+              },
+              "mime": {
+                "type": "string"
+              },
+              "size": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "previewUrl": {
+                "type": "string"
+              },
+              "provider": {
+                "type": "string"
+              },
+              "provider_metadata": {
+                "type": "object"
+              },
+              "related": {
                 "type": "string"
               },
               "created_by": {
@@ -572,63 +599,54 @@
               }
             }
           },
-          "articles": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "title",
-                "content",
-                "media",
-                "editor_pick",
-                "pinned"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                },
-                "media": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "article_subcategory": {
-                  "type": "string"
-                },
-                "admin_user": {
-                  "type": "string"
-                },
-                "article_tags": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "editor_pick": {
-                  "type": "boolean"
-                },
-                "views": {
-                  "type": "integer"
-                },
-                "pinned": {
-                  "type": "boolean"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "about_me": {
+            "type": "string"
+          },
+          "birthdate": {
+            "type": "string",
+            "format": "date"
+          },
+          "admin_user": {
+            "required": [
+              "id",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "firstname": {
+                "type": "string"
+              },
+              "lastname": {
+                "type": "string"
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string"
+              },
+              "resetPasswordToken": {
+                "type": "string"
+              },
+              "registrationToken": {
+                "type": "string"
+              },
+              "isActive": {
+                "type": "boolean"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "blocked": {
+                "type": "boolean"
               }
             }
           },
@@ -638,23 +656,28 @@
           }
         }
       },
-      "NewArticle-subcategory": {
+      "NewAuthor": {
         "required": [
           "name"
         ],
         "properties": {
           "name": {
             "type": "string",
-            "maxLength": 64
+            "maxLength": 32
           },
-          "article_category": {
+          "last_name": {
+            "type": "string",
+            "maxLength": 32
+          },
+          "about_me": {
             "type": "string"
           },
-          "articles": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "birthdate": {
+            "type": "string",
+            "format": "date"
+          },
+          "admin_user": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -670,5 +693,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Author"
+    }
+  ]
 }

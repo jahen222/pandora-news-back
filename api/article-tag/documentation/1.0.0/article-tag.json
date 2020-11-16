@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/article-subcategories": {
+    "/article-tags": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArticle-subcategory"
+                "$ref": "#/components/schemas/NewArticle-tag"
               }
             }
           }
         }
       }
     },
-    "/article-subcategories/count": {
+    "/article-tags/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "parameters": []
       }
     },
-    "/article-subcategories/{id}": {
+    "/article-tags/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewArticle-subcategory"
+                "$ref": "#/components/schemas/NewArticle-tag"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Article-subcategory"
+          "Article-tag"
         ],
         "parameters": [
           {
@@ -527,7 +527,7 @@
   },
   "components": {
     "schemas": {
-      "Article-subcategory": {
+      "Article-tag": {
         "required": [
           "id",
           "name"
@@ -539,38 +539,6 @@
           "name": {
             "type": "string",
             "maxLength": 64
-          },
-          "article_category": {
-            "required": [
-              "id",
-              "name"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "article_subcategories": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "language": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
           },
           "articles": {
             "type": "array",
@@ -632,13 +600,52 @@
               }
             }
           },
+          "language": {
+            "required": [
+              "id",
+              "name",
+              "acronym"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "acronym": {
+                "type": "string"
+              },
+              "article_categories": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "article_tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewArticle-subcategory": {
+      "NewArticle-tag": {
         "required": [
           "name"
         ],
@@ -647,14 +654,14 @@
             "type": "string",
             "maxLength": 64
           },
-          "article_category": {
-            "type": "string"
-          },
           "articles": {
             "type": "array",
             "items": {
               "type": "string"
             }
+          },
+          "language": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

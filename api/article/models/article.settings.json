@@ -24,12 +24,12 @@
       "collection": "file",
       "via": "related",
       "allowedTypes": [
-        "images",
         "files",
+        "images",
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": true
     },
     "article_subcategory": {
       "model": "article-subcategory",
@@ -39,13 +39,23 @@
       "plugin": "admin",
       "model": "user"
     },
-    "language": {
-      "type": "enumeration",
-      "enum": [
-        "spanish",
-        "english"
-      ],
-      "default": "spanish",
+    "article_tags": {
+      "collection": "article-tag",
+      "via": "articles"
+    },
+    "editor_pick": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "views": {
+      "type": "integer",
+      "min": 0,
+      "private": false
+    },
+    "pinned": {
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "languages",
+  "info": {
+    "name": "Language",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 16
+    },
+    "acronym": {
+      "type": "string",
+      "required": true,
+      "maxLength": 16
+    },
+    "article_categories": {
+      "collection": "article-category",
+      "via": "language"
+    },
+    "article_tags": {
+      "via": "language",
+      "collection": "article-tag"
+    }
+  }
+}

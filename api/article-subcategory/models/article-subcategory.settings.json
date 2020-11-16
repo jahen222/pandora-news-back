@@ -17,21 +17,12 @@
       "maxLength": 64
     },
     "article_category": {
-      "model": "article-category",
-      "via": "article_subcategories"
+      "via": "article_subcategories",
+      "model": "article-category"
     },
     "articles": {
       "via": "article_subcategory",
       "collection": "article"
-    },
-    "language": {
-      "type": "enumeration",
-      "enum": [
-        "spanish",
-        "english"
-      ],
-      "default": "spanish",
-      "required": true
     }
   }
 }

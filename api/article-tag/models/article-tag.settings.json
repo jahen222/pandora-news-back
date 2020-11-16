@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "article_categories",
+  "collectionName": "article_tags",
   "info": {
-    "name": "Article Category",
+    "name": "Article Tag",
     "description": ""
   },
   "options": {
@@ -16,13 +16,14 @@
       "required": true,
       "maxLength": 64
     },
-    "article_subcategories": {
-      "collection": "article-subcategory",
-      "via": "article_category"
+    "articles": {
+      "via": "article_tags",
+      "collection": "article",
+      "dominant": true
     },
     "language": {
-      "via": "article_categories",
-      "model": "language"
+      "model": "language",
+      "via": "article_tags"
     }
   }
 }
