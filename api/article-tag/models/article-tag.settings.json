@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_tags",
+  "info": {
+    "name": "Article Tag",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 64
+    },
+    "articles": {
+      "via": "article_tags",
+      "collection": "article",
+      "dominant": true
+    },
+    "language": {
+      "model": "language",
+      "via": "article_tags"
+    }
+  }
+}
